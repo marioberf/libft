@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <bsd/string.h>
-#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -25,13 +23,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *)big);
 	while ((i < len) && big[i] != '\0')
 	{
-		while (little[j] != '\0')
+		while (big[i] == little[j])
 		{
-			if (!(big[i] == little[j]))
-				break;
-			else  if (j == ft_strlen(little))
-				return (&((char *)big)[i]);
+			if (j == strlen(little) - 1)
+			{
+				return (&((char *)big)[i - j]);
+			}
 			j++;
+			i++;
 		}
 		j = 0;
 		i++;
@@ -39,12 +38,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-int	main()
+/*int	main(int argc, char **argv)
 {
-	const char *str_big = "Foo Bar Baz";
-	const char *str_little =  "Bar";
+	(void)argc;
+	const char *str_big = argv[1];
+	const char *str_little =  argv[2];
 
 	printf("%s\n", strnstr(str_big, str_little, 8));
 	printf("%s\n", ft_strnstr(str_big, str_little, 8));
 	return (0);
-}
+}*/
