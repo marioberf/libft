@@ -1,11 +1,13 @@
 #include "libft.h"
+#include <stdio.h>
 
+// TODO: arreglar error en max int segfault
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	j;
-	int	multi;
-	int	sol;
+	size_t	i;
+	size_t	j;
+	size_t	multi;
+	size_t	sol;
 
 	sol = 0;
 	i = 0;
@@ -15,7 +17,7 @@ int	ft_atoi(const char *nptr)
 
 	multi = 1;
 	j = i;
-	while (j < (int)ft_strlen(nptr) - 1)
+	while (j < ft_strlen(nptr) - 1)
 	{
 		if (!ft_isdigit(nptr[j]))
 		{
@@ -39,10 +41,10 @@ int	ft_atoi(const char *nptr)
 		sol *= -1;
 	return (sol);
 }
-/*int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	(void)argc;
 	printf("%i\n", atoi(argv[1]));
 	printf("%i\n", ft_atoi(argv[1]));
 	return (0);
-}*/
+}

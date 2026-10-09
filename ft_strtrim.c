@@ -2,9 +2,9 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	start;
-	int	end;
-	int	i;
+	size_t	start;
+	size_t	end;
+	size_t	i;
 	char	*cp;
 
 	start = 0;
