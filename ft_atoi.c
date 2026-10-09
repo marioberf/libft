@@ -1,6 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 int	ft_atoi(const char *nptr)
 {
@@ -41,10 +39,10 @@ int	ft_atoi(const char *nptr)
 		sol *= -1;
 	return (sol);
 }
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	(void)argc;
 	printf("%i\n", atoi(argv[1]));
 	printf("%i\n", ft_atoi(argv[1]));
 	return (0);
-}
+}*/
