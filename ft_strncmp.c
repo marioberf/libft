@@ -19,9 +19,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (s1[i] > s2[i])
-			return (s1[i] - s2[i]);
-		else if (s1[i] < s2[i])
+		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		i++;
 	}
@@ -30,7 +28,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 /*int	main()
 {
-	printf("%i\n", strncmp("abc", "cc", 3));
-	printf("%i\n", ft_strncmp("abc", "cc", 3));
+	printf("%i\n", strncmp("abc", "abc", 3));
+	printf("%i\n", ft_strncmp("abc", "abc", 3));
 	return (0);
 }*/
+

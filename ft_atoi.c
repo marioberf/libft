@@ -2,51 +2,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int	ft_iswhitespace(char c)
-{
-	if (c != ' ' && c != '\f' && c != '\n' && c != '\r'  && c != '\t' && c != '\v')
-	{
-		return (1);
-	}
-	return (0);
-}
-
-static int	ft_toint(unsigned const char *str)
-{
-	int	n;
-	int	i;
-	int	multi;
-
-	n = 0;
-	i = ft_strlen(str) - 1;
-	multi = 1;
-	while (i >= 0)
-	{
-		n += (str[i] - 48) * multi;
-		i--;
-		multi *= 10;
-	}
-	return (n);
-}
-
 int	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	n;
-	int	aux;
+	int	j;
+	int	multi;
+	int	sol;
 
+	sol = 0;
 	i = 0;
-	n = 0;
-	aux = 0;
+	if (nptr[0] == '-' || nptr[0] == '+')
+		i = 1;
+	ft_strtrim(nptr, " \\f\\n\\r\\t\\v");
+
+	multi = 1;
+	j = i;
+	while (j < (int)ft_strlen(nptr) - 1)
+	{
+		if (!ft_isdigit(nptr[j]))
+		{
+			multi /= 10;
+			break;
+		}
+		if (!ft_isdigit(nptr[j + 1]) && !nptr[j + 2])
+			multi /= 10;
+		multi *= 10;
+		j++;
+	}
 	while (nptr[i])
 	{
-		if (ft_isdigit(nptr[i]))
-		{
-		}
+		if (!ft_isdigit(nptr[i]))
+			break;
+		sol += (nptr[i] - 48) * multi;
+		multi /= 10;
 		i++;
 	}
+	if (nptr[0] == '-')
+		sol *= -1;
+	return (sol);
 }
-
 int	main(int argc, char **argv)
 {
 	(void)argc;
