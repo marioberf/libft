@@ -32,4 +32,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	printf("%i\n", ft_strncmp("abc", "abc", 3));
 	return (0);
 }*/
-

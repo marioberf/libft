@@ -45,8 +45,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end--;
 	}
 	cp = (char *)malloc(sizeof(char) * (end - start + 1));
-	 if (!cp)
-		 return (NULL);
+	if (!cp)
+		return (NULL);
 	i = 0;
 	while (start < end)
 		cp[i++] = s1[start++];

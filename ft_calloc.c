@@ -34,7 +34,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (m);
 }
 
-int	main()
+/*int	main()
 {
 	char	*str;
 
@@ -54,4 +54,4 @@ int	main()
 	str2[1] = 'b';
 	printf("%s\n", str2);
 	return (0);
-}
+}*/

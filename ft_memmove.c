@@ -15,6 +15,7 @@
 void	*memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	aux[3];
+
 	ft_memcpy(aux, src, n);
 	ft_memcpy(dest, aux, n);
 	return (dest);

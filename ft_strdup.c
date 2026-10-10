@@ -14,10 +14,10 @@
 #include <string.h>
 #include <stdio.h>
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	char	*dup;	
-	int	i;
+	int		i;
 
 	dup = malloc(sizeof(char) * ft_strlen(s));
 	if (!dup)
@@ -32,10 +32,10 @@ char *ft_strdup(const char *s)
 	return (dup);
 }
 
-int	main()
+/*int	main()
 {
 	char *s1 = "abcd";
 
 	char *s2 = ft_strdup(s1);
 	printf("%s\n", s2);
-}
+}*/
