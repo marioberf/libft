@@ -1,13 +1,23 @@
-#include "libft.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariober <mariober@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/10 16:47:38 by mariober          #+#    #+#             */
+/*   Updated: 2026/10/10 16:47:41 by mariober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// TODO: arreglar error en max int segfault
+#include "libft.h"
+
 int	ft_atoi(const char *nptr)
 {
 	size_t	i;
 	size_t	j;
-	size_t	multi;
-	size_t	sol;
+	long long	multi;
+	long long	sol;
 
 	sol = 0;
 	i = 0;
@@ -41,10 +51,10 @@ int	ft_atoi(const char *nptr)
 		sol *= -1;
 	return (sol);
 }
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	(void)argc;
 	printf("%i\n", atoi(argv[1]));
 	printf("%i\n", ft_atoi(argv[1]));
 	return (0);
-}
+}*/

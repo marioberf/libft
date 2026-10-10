@@ -31,6 +31,7 @@ void	*memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 
 char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strrchr(const char *s, int c);
 
 size_t	ft_strlen(const char *s);
 

@@ -1,4 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariober <mariober@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/10 16:47:23 by mariober          #+#    #+#             */
+/*   Updated: 2026/10/10 16:47:24 by mariober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
+static int	within_str(char const s1, char const *set)
+{
+	int	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == s1)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -8,23 +34,23 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*cp;
 
 	start = 0;
-	end = ft_strlen(s1) - ft_strlen(set);
+	end = ft_strlen(s1);
 	i = 0;
-	while (i < end && ft_strncmp(&s1[start], set, ft_strlen(set)) == 0)
+	while (s1[start] && within_str(s1[start], set))
 	{
-		start += ft_strlen(set) ;
-		i++;
+		start++;
 	}
-	while (end > 0 && ft_strncmp(&s1[end], set, ft_strlen(set)) == 0)
+	while (end > start && within_str(s1[end - 1], set))
 	{
-		end -= ft_strlen(set);
+		end--;
 	}
 	cp = (char *)malloc(sizeof(char) * (end - start + 1));
 	 if (!cp)
-		 return NULL;
-	i = 0; 
-	while (start <= end)
+		 return (NULL);
+	i = 0;
+	while (start < end)
 		cp[i++] = s1[start++];
+	cp[i] = '\0';
 	return (cp);
 }
 
