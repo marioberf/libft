@@ -10,7 +10,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	s1_s2 = malloc(sizeof(char) * (s1_len + s2_len));
+	s1_s2 = malloc(sizeof(char) * (s1_len + s2_len) + 1);
 	if (!s1_s2)
 		return (NULL);
 	i = 0;
@@ -20,6 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	while (i < s2_len)
 		s1_s2[j++] = s2[i++];
+	s1_s2[j] = '\0';
 	return (s1_s2);
 }
 
