@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 static int	ft_isspace(char c)
 {
@@ -30,7 +31,9 @@ int	ft_atoi(const char *nptr)
 	sol = 0;
 	i = 0;
 	neg = 0;
-	while (ft_isspace(nptr[i]) || nptr[i] == 0)
+	while (ft_isspace(nptr[i]))
+		i++;
+	while (nptr[i] == '0')
 		i++;
 	if (nptr[i] == '-')
 	{
@@ -42,7 +45,7 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i])
 	{
 		if (!ft_isdigit(nptr[i]))
-			return (sol);
+			break ;
 		digits++;
 		sol = sol * 10 + (nptr[i] - '0');
 		i++;
@@ -55,8 +58,7 @@ int	ft_atoi(const char *nptr)
 /*int	main(int argc, char **argv)
 {
 	(void)argc;
-	(void)argv;
-	printf("%i\n", atoi("\t1"));
-	printf("%i\n", ft_atoi("\t1"));
+	printf("%i\n", atoi(argv[1]));
+	printf("%i\n", ft_atoi(argv[1]));
 	return (0);
 }*/
