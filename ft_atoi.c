@@ -12,53 +12,51 @@
 
 #include "libft.h"
 
-static long long	multi_f(size_t j, long long multi, const char *nptr)
+static int	ft_isspace(char c)
 {
-	while (j < ft_strlen(nptr) - 1)
-	{
-		if (!ft_isdigit(nptr[j]))
-		{
-			multi /= 10;
-			break ;
-		}
-		if (!ft_isdigit(nptr[j + 1]) && !nptr[j + 2])
-			multi /= 10;
-		multi *= 10;
-		j++;
-	}
-	return (multi);
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	else
+	 return (0);
 }
 
 int	ft_atoi(const char *nptr)
 {
-	size_t		i;
-	size_t		j;
-	long long	multi;
 	long long	sol;
+	size_t	i;
+	int	neg;
+	size_t	digits;
 
 	sol = 0;
 	i = 0;
-	if (nptr[0] == '-' || nptr[0] == '+')
-		i = 1;
-	ft_strtrim(nptr, " \\f\\n\\r\\t\\v");
-	j = i;
-	multi = multi_f(j, 1, nptr);
+	neg = 0;
+	while (ft_isspace(nptr[i]) || nptr[i] == 0)
+		i++;
+	if (nptr[i] == '-')
+	{
+		neg = 1;
+		i++;
+	}
+	else if (nptr[i] == '+')
+		i++;
 	while (nptr[i])
 	{
 		if (!ft_isdigit(nptr[i]))
-			break ;
-		sol += (nptr[i] - 48) * multi;
-		multi /= 10;
+			return (sol);
+		digits++;
+		sol = sol * 10 + (nptr[i] - '0');
 		i++;
 	}
-	if (nptr[0] == '-')
+	if (neg)
 		sol *= -1;
 	return (sol);
 }
-/*nt	main(int argc, char **argv)
+
+/*int	main(int argc, char **argv)
 {
 	(void)argc;
-	printf("%i\n", atoi(argv[1]));
-	printf("%i\n", ft_atoi(argv[1]));
+	(void)argv;
+	printf("%i\n", atoi("\t1"));
+	printf("%i\n", ft_atoi("\t1"));
 	return (0);
 }*/
