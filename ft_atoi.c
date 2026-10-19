@@ -58,7 +58,8 @@ int	ft_atoi(const char *nptr)
 /*int	main(int argc, char **argv)
 {
 	(void)argc;
-	printf("%i\n", atoi(argv[1]));
-	printf("%i\n", ft_atoi(argv[1]));
+	(void)argv;
+	printf("%i\n", atoi(NULL));
+	//printf("%i\n", ft_atoi(NULL));
 	return (0);
 }*/
