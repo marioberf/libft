@@ -33,6 +33,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *nptr);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+unsigned int	ft_lstsize(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
