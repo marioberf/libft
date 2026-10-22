@@ -30,6 +30,7 @@ SRCS =	ft_atoi.c \
 	ft_putnbr_fd.c \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
+	ft_lstadd_back.c \
 	ft_lstlast.c
 
 

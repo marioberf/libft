@@ -15,7 +15,7 @@ t_list	*ft_lstnew(void *content)
 /*int	main()
 {
 	t_list *alphab;
-	alphab = ft_lstnew((char *)'a');
+	alphab = ft_lstnew((char *)"a");
 	printf("%s\n", (char *)alphab);
 	return (0);
 }*/
