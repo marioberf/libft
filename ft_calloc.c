@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdint.h>
 
- //TODO: cambiar calloc SIZE_MAX porque size_t * size_t
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*m;
@@ -25,6 +25,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		m = malloc(1);
 		return (m);
 	}
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (NULL);
 	m = malloc(len * size);
 	if (!m)
 		return (NULL);

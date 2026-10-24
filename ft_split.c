@@ -1,6 +1,5 @@
 #include "libft.h"
 
-// TODO: añadir los frees
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -26,20 +25,27 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i])
 		{
 			if (end == 0)
-				arr_str[j] = malloc(sizeof(size_t) * (ft_strlen(ft_strchr(&s[j], c))));
+				arr_str[j] = malloc(sizeof(size_t) * (ft_strlen(ft_strchr(&s[j], c))) + 1);
 			arr_str[j][end] = s[i];
 			end++;
 			i++;
 		}
+		arr_str[j][end] = '\0';
 		if (s[i] == c)
 			i++;
 		end = 0;
 		j++;
 	}
+	i = 0;
+	while (i < j)
+	{
+		free(arr_str[j]);
+		i++;
+	}
 	return (arr_str);
 }
 
-/*int	main()
+int	main()
 {
 	int	i;
 	char	str[17] = "Hola_Mundo_1_osu";
@@ -48,4 +54,4 @@ char	**ft_split(char const *s, char c)
 	while (i < 4)
 		printf("%s\n", arr_str[i++]);
 	return (0);
-}*/
+}
