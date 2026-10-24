@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -20,22 +18,27 @@ char	*ft_strchr(const char *s, int c)
 	char	*p;
 
 	i = 0;
+	p = (char *)&s[i];
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 		{
 			p = (char *)&s[i];
 			return (p);
 		}
 		i++;
 	}
-	p = (char *)&s[i];
-	return (0);
+	if (s[i] == (char)c)
+	{
+		p = (char *)&s[i];
+		return (p);
+	}
+	return (NULL);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
-	printf("%s\n", ft_strchr("abc", 'a'));
-	printf("%s\n", strchr("abc", 'a'));
+	printf("%s\n", ft_strchr("abc", '\0'));
+	printf("%s\n", strchr("abc", '\0'));
 	return (0);
-}*/
+} */

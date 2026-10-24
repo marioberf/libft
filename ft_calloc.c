@@ -17,21 +17,19 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*m;
 	size_t	i;
-	size_t	len;
 
-	len = nmemb;
 	if (!nmemb || !size)
 	{
-		m = malloc(1);
+		m = malloc(0);
 		return (m);
 	}
 	if (size != 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
-	m = malloc(len * size);
+	m = malloc(nmemb * size);
 	if (!m)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (i < (nmemb * size))
 	{
 		((char *)m)[i] = '\0';
 		i++;

@@ -1,11 +1,13 @@
 #include "libft.h"
 
-static int	int_len(int n)
+static int	int_len(long n)
 {
 	size_t	len;
 
 	len = 0;
-	while(n > 1)
+	if (n <= 0)
+		len = 1;
+	while(n != 0)
 	{
 		n /= 10;
 		len++;
@@ -13,46 +15,62 @@ static int	int_len(int n)
 	return (len);
 }
 
-static int	decimal_rep(int len)
+static void	str_bw(char *str, int neg)
 {
-	size_t	i;
-	size_t	sol; 
+	int	i;
+	char	aux;
+	int	str_l;
 
+	str_l = ft_strlen(str) - 1;
 	i = 0;
-	sol = 1;
-	while (i < (size_t)len)
+	if (neg)
 	{
-		sol *= 10;
 		i++;
 	}
-	return (sol);
+	while (i < str_l)
+	{
+		aux = str[i];
+		str[i] = str[str_l];
+		str[str_l] = aux;
+		i++;
+		str_l--;
+	}
 }
 
 char	*ft_itoa(int n)
 {
 	char	*res;
 	size_t	i;
-	int	len;
+	long	n_l;
+	int	neg;
 
-	len = int_len(n) + 1;
-	res = malloc(sizeof(len + 1));
 	i = 0;
-	while (i <= (size_t)len)
+	neg = 0;
+	n_l = n;
+	res = malloc(int_len(n_l) + 1);
+	if (!res)
+		return (NULL);
+	if (n_l == 0)
+		res[i++] = '0';
+	if (n_l < 0)
 	{
-		if (i == 0)
-			res[i] = (n / decimal_rep(len - 1)) + '0';
-		else if (i < (size_t)len)
-			res[i] = ((n / decimal_rep(len - 1)) % decimal_rep(len - 1)) + '0';
-		else if (i == (size_t)len)
-			res[i] = ((n % decimal_rep(len - 1)) + '0');
-		len--;
+		n_l *= -1;
+		res[i++] = '-';
+		neg = 1;
+	}
+	while (n_l > 0)
+	{
+		res[i] = (n_l % 10) + '0';
+		n_l /= 10;
 		i++;
 	}
-	return res;
+	res[i] = '\0';
+	str_bw(res ,neg);
+	return (res);
 }
 
-/*int	main()
+/* int	main()
 {
-	printf("%s\n", ft_itoa(123));
+	printf("%s\n", ft_itoa(-21));
 	return (0);
-}*/
+} */

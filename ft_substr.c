@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -7,19 +6,26 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
 	i = start;
 	j = 0;
-	sub_str = (char *)malloc(sizeof(size_t) * len);
+	if (len > ft_strlen(s) - i)
+		len = ft_strlen(s) - i;
+	sub_str = (char *)malloc(sizeof(char) * len + 1);
 	if (!sub_str)
 		return (NULL);
-	while (j < len)
+	while (s[j] && j < len)
 		sub_str[j++] = s[i++];
 	sub_str[j] = '\0';
 	return (sub_str);
 }
 
-int	main()
+/* int	main()
 {
 	printf("%s\n", ft_substr("inesss", 3, 2));
 	return (0);
 }
+ */

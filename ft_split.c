@@ -1,57 +1,94 @@
 #include "libft.h"
 
+static char	**free_arr(char **arr)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < ft_strlen(*arr))
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return (NULL);
+}
+
+static size_t	count_w(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	arrlen;
+
+	arrlen = 0;
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != c && j != 1)
+		{
+			arrlen++;
+			j = 1;
+		}
+		if (s[i] == c && j == 1)
+		{
+			j = 0;
+		}
+		i++;
+	}
+	return (arrlen);
+}
+
+static size_t	word_len(char const *s, char c)
+{
+    size_t len = 0;
+
+    while (s[len] && s[len] != c)
+        len++;
+    return (len);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
 	size_t	arrlen;
-	size_t	end;
+	size_t	len;
 	char	**arr_str;
 
-	i = 0;
-	arrlen = 1;
-	while (s[i])
-	{
-		if (s[i] == c)
-			arrlen++;
-		i++;
-	}
-	arr_str = malloc(sizeof(size_t) * arrlen);
-	end = 0;
+	if (!s)
+		return (NULL);
+	arrlen = count_w(s, c);
+	arr_str = malloc(sizeof(char *) * arrlen + 1);
 	i = 0;
 	j = 0;
-	while (j < arrlen && s[j])
+	while (j < arrlen)
 	{
+		i++;
+		len = word_len(&s[i], c);
 		while (s[i] != c && s[i])
 		{
-			if (end == 0)
-				arr_str[j] = malloc(sizeof(size_t) * (ft_strlen(ft_strchr(&s[j], c))) + 1);
-			arr_str[j][end] = s[i];
-			end++;
-			i++;
+			arr_str[j] = malloc(len + 1);
+			if (!arr_str[j])	
+				return (free_arr(arr_str));
+			arr_str[j] = ft_memcpy(arr_str[j], &s[i], len);
+			arr_str[j][len] = '\0';
+			i += len;
+			j++;
 		}
-		arr_str[j][end] = '\0';
-		if (s[i] == c)
-			i++;
-		end = 0;
-		j++;
-	}
-	i = 0;
-	while (i < j)
-	{
-		free(arr_str[j]);
-		i++;
+		arr_str[j] = NULL;
 	}
 	return (arr_str);
 }
 
-int	main()
+/* int	main()
 {
 	int	i;
-	char	str[17] = "Hola_Mundo_1_osu";
+	char	str[] = " Hola  Mundo_1   n      osu";
 	i = 0;
-	char	**arr_str = ft_split(str, '_');
+	char	**arr_str = ft_split(str, ' ');
 	while (i < 4)
 		printf("%s\n", arr_str[i++]);
 	return (0);
 }
+ */
