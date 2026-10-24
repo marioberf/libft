@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+ //TODO: cambiar calloc SIZE_MAX porque size_t * size_t
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*m;

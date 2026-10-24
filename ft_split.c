@@ -1,5 +1,6 @@
 #include "libft.h"
 
+// TODO: añadir los frees
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
