@@ -5,7 +5,7 @@ static char	**free_arr(char **arr)
 	size_t	i;
 
 	i = 0;
-	while (i < ft_strlen(*arr))
+	while (arr[i])
 	{
 		free(arr[i]);
 		i++;
@@ -59,12 +59,16 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	arrlen = count_w(s, c);
-	arr_str = malloc(sizeof(char *) * arrlen + 1);
+	arr_str = malloc(sizeof(char *) * (arrlen + 1));
+	if (!arr_str)
+		return (NULL);
 	i = 0;
 	j = 0;
+	arr_str[arrlen] = NULL;
 	while (j < arrlen)
 	{
-		i++;
+		while (s[i] == c)
+			i++;
 		len = word_len(&s[i], c);
 		while (s[i] != c && s[i])
 		{
@@ -76,19 +80,18 @@ char	**ft_split(char const *s, char c)
 			i += len;
 			j++;
 		}
-		arr_str[j] = NULL;
 	}
+	arr_str[j] = NULL;
 	return (arr_str);
 }
 
 /* int	main()
 {
 	int	i;
-	char	str[] = " Hola  Mundo_1   n      osu";
+	char	str[] = "      osu hola que tal\n";
 	i = 0;
 	char	**arr_str = ft_split(str, ' ');
 	while (i < 4)
 		printf("%s\n", arr_str[i++]);
 	return (0);
-}
- */
+} */

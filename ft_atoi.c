@@ -18,15 +18,15 @@ static int	ft_isspace(char c)
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
 	else
-	 return (0);
+		return (0);
 }
 
 int	ft_atoi(const char *nptr)
 {
 	long long	sol;
-	size_t	i;
-	int	neg;
-	size_t	digits;
+	size_t		i;
+	int		neg;
+	size_t		digits;
 
 	sol = 0;
 	i = 0;
