@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariober <mariober@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/26 16:59:36 by mariober          #+#    #+#             */
+/*   Updated: 2026/10/26 16:59:37 by mariober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	mod;
-	int	div;
+	int		mod;
+	int		div;
 	long	n_cp;
 
 	n_cp = n;
@@ -22,7 +34,7 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 	{
 		ft_putchar_fd(n_cp + '0', fd);
-		return;	
+		return ;
 	}
 }
 

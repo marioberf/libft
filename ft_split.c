@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariober <mariober@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/26 16:56:31 by mariober          #+#    #+#             */
+/*   Updated: 2026/10/26 16:56:33 by mariober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char	**free_arr(char **arr)
@@ -41,30 +53,22 @@ static size_t	count_w(char const *s, char c)
 
 static size_t	word_len(char const *s, char c)
 {
-    size_t len = 0;
+	size_t	len;
 
-    while (s[len] && s[len] != c)
-        len++;
-    return (len);
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
 }
 
-char	**ft_split(char const *s, char c)
+char	**split_core(char const *s, char c, size_t arrlen, char **arr_str)
 {
+	size_t	len;
 	size_t	i;
 	size_t	j;
-	size_t	arrlen;
-	size_t	len;
-	char	**arr_str;
 
-	if (!s)
-		return (NULL);
-	arrlen = count_w(s, c);
-	arr_str = malloc(sizeof(char *) * (arrlen + 1));
-	if (!arr_str)
-		return (NULL);
 	i = 0;
 	j = 0;
-	arr_str[arrlen] = NULL;
 	while (j < arrlen)
 	{
 		while (s[i] == c)
@@ -73,7 +77,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i])
 		{
 			arr_str[j] = malloc(len + 1);
-			if (!arr_str[j])	
+			if (!arr_str[j])
 				return (free_arr(arr_str));
 			arr_str[j] = ft_memcpy(arr_str[j], &s[i], len);
 			arr_str[j][len] = '\0';
@@ -83,6 +87,21 @@ char	**ft_split(char const *s, char c)
 	}
 	arr_str[j] = NULL;
 	return (arr_str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	arrlen;
+	char	**arr_str;
+
+	if (!s)
+		return (NULL);
+	arrlen = count_w(s, c);
+	arr_str = malloc(sizeof(char *) * (arrlen + 1));
+	if (!arr_str)
+		return (NULL);
+	arr_str[arrlen] = NULL;
+	return (split_core(s, c, arrlen, arr_str));
 }
 
 /* int	main()

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariober <mariober@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/26 16:58:47 by mariober          #+#    #+#             */
+/*   Updated: 2026/10/26 16:58:48 by mariober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
 static int	int_len(long n)
@@ -7,7 +18,7 @@ static int	int_len(long n)
 	len = 0;
 	if (n <= 0)
 		len = 1;
-	while(n != 0)
+	while (n != 0)
 	{
 		n /= 10;
 		len++;
@@ -17,9 +28,9 @@ static int	int_len(long n)
 
 static void	str_bw(char *str, int neg)
 {
-	int	i;
+	int		i;
 	char	aux;
-	int	str_l;
+	int		str_l;
 
 	str_l = ft_strlen(str) - 1;
 	i = 0;
@@ -37,12 +48,23 @@ static void	str_bw(char *str, int neg)
 	}
 }
 
+static size_t	iterint_operations(long n_l, size_t i, char *res)
+{
+	while (n_l > 0)
+	{
+		res[i] = (n_l % 10) + '0';
+		n_l /= 10;
+		i++;
+	}
+	return (i);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*res;
 	size_t	i;
 	long	n_l;
-	int	neg;
+	int		neg;
 
 	i = 0;
 	neg = 0;
@@ -58,14 +80,9 @@ char	*ft_itoa(int n)
 		res[i++] = '-';
 		neg = 1;
 	}
-	while (n_l > 0)
-	{
-		res[i] = (n_l % 10) + '0';
-		n_l /= 10;
-		i++;
-	}
+	i = iterint_operations(n_l, i, res);
 	res[i] = '\0';
-	str_bw(res ,neg);
+	str_bw(res, neg);
 	return (res);
 }
 

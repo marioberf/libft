@@ -21,14 +21,30 @@ static int	ft_isspace(char c)
 		return (0);
 }
 
-int	ft_atoi(const char *nptr)
+static	long long	turns_int(const char *nptr, int neg, size_t i)
 {
 	long long	sol;
-	size_t		i;
-	int		neg;
 	size_t		digits;
 
 	sol = 0;
+	while (nptr[i])
+	{
+		if (!ft_isdigit(nptr[i]))
+			break ;
+		digits++;
+		sol = sol * 10 + (nptr[i] - '0');
+		i++;
+	}
+	if (neg)
+		sol *= -1;
+	return (sol);
+}
+
+int	ft_atoi(const char *nptr)
+{
+	size_t		i;
+	int			neg;
+
 	i = 0;
 	neg = 0;
 	while (ft_isspace(nptr[i]))
@@ -42,17 +58,7 @@ int	ft_atoi(const char *nptr)
 	}
 	else if (nptr[i] == '+')
 		i++;
-	while (nptr[i])
-	{
-		if (!ft_isdigit(nptr[i]))
-			break ;
-		digits++;
-		sol = sol * 10 + (nptr[i] - '0');
-		i++;
-	}
-	if (neg)
-		sol *= -1;
-	return (sol);
+	return (turns_int(nptr, neg, i));
 }
 
 /*int	main(int argc, char **argv)
