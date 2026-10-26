@@ -53,10 +53,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	cp[i] = '\0';
 	return (cp);
 }
-
-/*int	main(int argc, char **argv)
-{
-	(void)argc;
-	printf("%s\n", ft_strtrim(argv[1], argv[2]));
-	return (0);
-}*/

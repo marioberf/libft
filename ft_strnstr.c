@@ -31,14 +31,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-/*int	main(int argc, char **argv)
-{
-	(void)argc;
-	const char *str_big = argv[1];
-	const char *str_little =  argv[2];
-
-	printf("%s\n", strnstr(str_big, str_little, 8));
-	printf("%s\n", ft_strnstr(str_big, str_little, 8));
-	return (0);
-}*/

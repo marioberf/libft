@@ -31,10 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-/*int main()
-{
-	//printf("%s\n", strrchr("inese", 'l'));
-	printf("%s\n", ft_strrchr("inese", 'l'));
-	return (0);
-}*/

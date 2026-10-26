@@ -29,17 +29,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	sol[i] = '\0';
 	return (sol);
 }
-
-/*char	f_test(unsigned int i, char c)
-{ 
-	if (i == (unsigned int)(c - '0'))
-		return (c);
-	return ('0');
-}*/
-
-/*int	main()
-{
-	char	*str = "01233";
-	printf("%s\n", ft_strmapi(str, f_test));
-	return (0);
-}*/

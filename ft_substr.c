@@ -34,10 +34,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_str[j] = '\0';
 	return (sub_str);
 }
-
-/* int	main()
-{
-	printf("%s\n", ft_substr("inesss", 3, 2));
-	return (0);
-}
- */

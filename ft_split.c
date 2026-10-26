@@ -103,14 +103,3 @@ char	**ft_split(char const *s, char c)
 	arr_str[arrlen] = NULL;
 	return (split_core(s, c, arrlen, arr_str));
 }
-
-/* int	main()
-{
-	int	i;
-	char	str[] = "      osu hola que tal\n";
-	i = 0;
-	char	**arr_str = ft_split(str, ' ');
-	while (i < 4)
-		printf("%s\n", arr_str[i++]);
-	return (0);
-} */

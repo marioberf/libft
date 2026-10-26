@@ -36,25 +36,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return (m);
 }
-
-/*int	main()
-{
-	char	*str;
-
-	str = calloc(2, sizeof(char) * 2);
-	printf("%s\n", str);
-	str[0] = 'a';
-	printf("%s\n", str);
-	str[1] = 'b';
-	printf("%s\n", str);
-	char	*str2;
-
-	printf("\n");
-	str2 = ft_calloc(2, sizeof(char) * 2);
-	printf("%s\n", str2);
-	str2[0] = 'a';
-	printf("%s\n", str2);
-	str2[1] = 'b';
-	printf("%s\n", str2);
-	return (0);
-}*/

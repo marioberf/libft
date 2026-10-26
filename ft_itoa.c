@@ -85,9 +85,3 @@ char	*ft_itoa(int n)
 	str_bw(res, neg);
 	return (res);
 }
-
-/* int	main()
-{
-	printf("%s\n", ft_itoa(-21));
-	return (0);
-} */

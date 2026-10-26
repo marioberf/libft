@@ -35,8 +35,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s1_s2[j] = '\0';
 	return (s1_s2);
 }
-
-/*int	main()
-{
-	printf("%s\n", ft_strjoin("abc", "def"));
-}*/

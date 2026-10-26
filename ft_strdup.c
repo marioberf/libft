@@ -30,11 +30,3 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
-
-/*int	main()
-{
-	char *s1 = "abcd";
-
-	char *s2 = ft_strdup(s1);
-	printf("%s\n", s2);
-}*/

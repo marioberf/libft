@@ -60,12 +60,3 @@ int	ft_atoi(const char *nptr)
 		i++;
 	return (turns_int(nptr, neg, i));
 }
-
-/*int	main(int argc, char **argv)
-{
-	(void)argc;
-	(void)argv;
-	printf("%i\n", atoi(NULL));
-	//printf("%i\n", ft_atoi(NULL));
-	return (0);
-}*/

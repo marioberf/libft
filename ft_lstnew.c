@@ -23,11 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
-
-/*int	main()
-{
-	t_list *alphab;
-	alphab = ft_lstnew((char *)"a");
-	printf("%s\n", (char *)alphab);
-	return (0);
-}*/

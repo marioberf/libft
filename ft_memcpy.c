@@ -26,10 +26,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-/*int	main()
-{
-	//printf("%p\n", memcpy(" ", " ", 2));
-	printf("%p\n", ft_memcpy(" ", " ", 2));
-	return (0);
-}*/

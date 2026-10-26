@@ -35,10 +35,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-/* int	main(void)
-{
-	printf("%s\n", ft_strchr("abc", '\0'));
-	printf("%s\n", strchr("abc", '\0'));
-	return (0);
-} */
