@@ -26,6 +26,7 @@ static	long long	turns_int(const char *nptr, int neg, size_t i)
 	size_t		digits;
 
 	sol = 0;
+	digits = 0;
 	while (nptr[i])
 	{
 		if (!ft_isdigit(nptr[i]))
